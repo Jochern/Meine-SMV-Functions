@@ -1,15 +1,32 @@
 import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
 import 'package:dart_appwrite/dart_appwrite.dart';
 
 // This is your Appwrite function
 // It's executed each time we get a request
 Future<dynamic> main(final context) async {
-// Why not try the Appwrite SDK?
-  //
-  // final client = Client()
-  //    .setEndpoint('https://cloud.appwrite.io/v1')
-  //    .setProject(Platform.environment['APPWRITE_FUNCTION_PROJECT_ID'])
-  //    .setKey(Platform.environment['APPWRITE_API_KEY']);
+
+  final client = Client()
+      .setEndpoint('https://cloud.appwrite.io/v1')
+      .setProject(Platform.environment['APPWRITE_FUNCTION_PROJECT_ID'])
+      .setKey(Platform.environment['APPWRITE_API_KEY']);
+
+  String functionData =
+      Platform.environment['APPWRITE_FUNCTION_EVENT_DATA'].toString();
+  Map<String, dynamic> payload = json.decode(functionData);
+
+  context.log(payload.toString());
+  // String UPDATED_AT_KEY = "updatedAt";
+  // final collectionId = payload["\$collection"];
+  // final documentId = payload["\$id"];
+  // print('Collection ID: $collectionId, Document ID: $documentId');
+  // final currentTimeStamp = DateTime.now().toString();
+  // print('Current Time Stamp: $currentTimeStamp');
+  // if (!payload.containsKey(UPDATED_AT_KEY)) {
+  //   print("Collection doesn't contain \"updatedAt\" key!");
+  //   return;
+  // }
 
   // You can log messages to the console
   context.log('Hello, Logs!');

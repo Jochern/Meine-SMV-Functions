@@ -5,6 +5,7 @@ environment:
   sdk: ^2.17.0
 
 dependencies:
+  appwrite: ^12.0.1
   dart_appwrite: 8.0.0
 
 dev_dependencies:
