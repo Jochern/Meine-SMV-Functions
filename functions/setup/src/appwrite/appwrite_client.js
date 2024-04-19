@@ -1,4 +1,4 @@
-import { Client } from 'node-appwrite';
+import { Client, Databases, Users } from 'node-appwrite';
 
 const client = new Client();
 
@@ -7,6 +7,10 @@ client
     .setProject("<YOUR_PROJECT_ID>")
     .setKey("<YOUR_API_KEY>");
 
-const databases = new sdk.Databases(client);
+const databases = new Databases(client);
 
-export default { client };
+const users = new Users(client);
+
+const teams = new Teams(client);
+
+export default { client, databases, users, teams };

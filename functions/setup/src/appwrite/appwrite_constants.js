@@ -1,0 +1,4 @@
+export default {
+    DATABASE_ID: '65f9d41555bd9d555f16',
+    SCHOOLS_COLLECTION_ID: '65f9d41555bd9d555f16',
+}
