@@ -1,4 +1,4 @@
-import { Client, Databases, Users } from 'node-appwrite';
+import { Client, Databases, Users, Teams } from 'node-appwrite';
 
 const client = new Client();
 
