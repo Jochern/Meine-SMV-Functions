@@ -23,14 +23,15 @@ const createUser = async ({ email, password, name, schoolShorthand, role, log })
     switch (role) {
         case 'm':
             //await users.updateLabels(userId, ['admin', 'manager']);
+            createMembership(userId, schoolShorthand);
             log(email)
             break;
         case 'a':
             // await users.updateLabels(userId, ['admin']);
-            await teams.createMembership(schoolShorthand, ['member', 'guest'], email, userId,);
+            //await teams.createMembership(schoolShorthand, ['member', 'guest'], email, userId,);
             break;
         case 's':
-            await teams.createMembership(schoolShorthand, ['guest'], email, userId,);
+            //await teams.createMembership(schoolShorthand, ['guest'], email, userId,);
             break;
 
         default:
@@ -42,10 +43,11 @@ const createUser = async ({ email, password, name, schoolShorthand, role, log })
 };
 
 
-async function createMembership() {
+async function createMembership(schoolShorthand, userId) {
     try {
-        await teams.createMembership(schoolShorthand, ['member', 'guest'], "localhost", undefined, userId,);
+        await teams.createMembership(schoolShorthand, ['member', 'guest'], "localhost", undefined, userId);
     } catch (error) {
+        print(error);
         if (error.toString() = "Error: Invalid `email` param: Value must be a valid email address") {
             return
         };
