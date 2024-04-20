@@ -20,11 +20,11 @@ const createUser = async ({ email, password, name, schoolShorthand, role, log })
 
     switch (role) {
         case 'm':
-            await users.updateLabels(userId, ['admin', 'manager']);
+            //await users.updateLabels(userId, ['admin', 'manager']);
             await teams.createMembership(schoolShorthand, ['member', 'guest'], email, userId,);
             break;
         case 'a':
-            await users.updateLabels(userId, ['admin']);
+            // await users.updateLabels(userId, ['admin']);
             await teams.createMembership(schoolShorthand, ['member', 'guest'], email, userId,);
             break;
         case 's':
