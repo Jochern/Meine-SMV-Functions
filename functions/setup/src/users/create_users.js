@@ -30,4 +30,4 @@ const createUser = async ({ email, password, name, schoolShorthand, role, }) => 
 
 };
 
-export default createSchool;
+export default createUser;

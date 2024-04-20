@@ -1,4 +1,5 @@
 import { Client } from 'node-appwrite';
+import createUser from './users/create_users';
 
 // This is your Appwrite function
 // It's executed each time we get a request
@@ -11,13 +12,12 @@ export default async ({ req, res, log, error }) => {
   //    .setKey(process.env.APPWRITE_API_KEY);
 
   // You can log messages to the console
-  log('Hello, Logs!');
+  log('Request Recieved!');
 
-  // If something goes wrong, log an error
-  error('Hello, Errors!');
 
   // The `req` object contains the request data
   if (req.method === 'GET') {
+    await createUser({ email: 'test@test.de', name: 'testname', password: 'test', role: 'm', })
     // Send a response with the res object helpers
     // `res.send()` dispatches a string back to the client
     return res.send('Hello, World!');
