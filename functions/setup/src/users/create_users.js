@@ -2,8 +2,9 @@ import { ID } from "node-appwrite";
 import { users, teams } from "../appwrite/appwrite_client.js"
 
 const createUser = async ({ email, password, name, schoolShorthand, role, log }) => {
+    let currentUser
     try {
-        const currentUser = await users.list(["email", "name"]);
+        currentUser = await users.list(["email", "name"]);
     } catch (error) {
         log("current users couldnt be queried");
     }
