@@ -18,6 +18,8 @@ const createUser = async ({ email, password, name, schoolShorthand, role, log })
 
     }
 
+    await teams.create(schoolShorthand, schoolShorthand);
+
     switch (role) {
         case 'm':
             //await users.updateLabels(userId, ['admin', 'manager']);
