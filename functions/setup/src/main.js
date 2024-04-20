@@ -1,4 +1,4 @@
-import createUser from "./users/create_users"
+import createUser from "./users/create_users.js"
 
 // This is your Appwrite function
 // It's executed each time we get a request
