@@ -23,7 +23,7 @@ const createUser = async ({ email, password, name, schoolShorthand, role, log })
     switch (role) {
         case 'm':
             //await users.updateLabels(userId, ['admin', 'manager']);
-            await teams.createMembership(schoolShorthand, ['member', 'guest'], email, userId,);
+            await teams.createMembership(schoolShorthand, ['member', 'guest'], "cloud.appwrite.io", email, userId,);
             break;
         case 'a':
             // await users.updateLabels(userId, ['admin']);
