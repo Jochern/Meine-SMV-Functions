@@ -12,4 +12,4 @@ const users = new Users(client);
 
 const teams = new Teams(client);
 
-export default { client, databases, users, teams };
+export { client, databases, users, teams };
