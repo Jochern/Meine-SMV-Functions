@@ -11,10 +11,21 @@ export default async ({ req, res, log, error }) => {
   // The `req` object contains the request data
   if (req.method === 'POST') {
     if (req.body.type == 'user') {
+      /*
+        {
+          "type": "user",
+          "email": "johannesking003@gmail.com",       -> wenn leer dann wird standart erzeugt (name@school.i)
+          "password" : "12345678",                   
+          "role": "u",				                        // member(m), admin(a), student(u)
+          "schoolShorthand": "rbs",
+          "firstName": "Johannes",
+          "lastName": "Kling"
+        }
+      */
       log('Starting to create User.')
       log(req.body.name)
       try {
-        await createUser({ email: req.body.email, name: req.body.name, schoolShorthand: req.body.schoolShorthand, password: req.body.password, role: req.body.role, log: log })
+        await createUser({ email: req.body.email, name: req.body.name, schoolShorthand: req.body.schoolShorthand, password: req.body.password, role: req.body.role, firstName: req.body.firstName, lastName: req.body.lastName, log: log })
         log(`Created User '${req.body.username}' with role'${req.body.role}', name'${req.body.name}', school '${req.body.schoolShorthand}' `)
       } catch (error) {
         return res.json({
