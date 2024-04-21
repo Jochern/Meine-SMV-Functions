@@ -14,8 +14,8 @@ export default async ({ req, res, log, error }) => {
       /*
         {
           "type": "user",
-          "email": "johannesking003@gmail.com",       -> wenn leer dann wird standart erzeugt (name@school.i)
-          "name": "Johannes Kling"                      
+          "email": "johannesking003@gmail.com",       @optional -> wenn leer dann wird standart erzeugt (name@school.i)
+          "name": "Johannes Kling"                    
           "password" : "12345678",                   
           "role": "u",				                        // member(m), admin(a), student(u)
           "schoolShorthand": "rbs",
