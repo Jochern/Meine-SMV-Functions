@@ -1,6 +1,6 @@
 import { ID } from "node-appwrite";
 import { users, teams, databases } from "../appwrite/appwrite_client.js"
-import appwrite_constants from "../appwrite/appwrite_constants.js";
+import { APPWRITE_CONSTANTS } from "../appwrite/appwrite_constants.js";
 
 const createUser = async ({ email, password, name, schoolShorthand, role, log }) => {
 // let currentUser
@@ -12,8 +12,8 @@ const createUser = async ({ email, password, name, schoolShorthand, role, log })
 // if (currentUser !== undefined) throw Error(`User with Email '${email}' or Name '${name}' already exists.`)
 
     let school = databases.listDocuments(
-        appwrite_constants.DATABASE_ID,
-        appwrite_constants.SCHOOLS_COLLECTION_ID,
+        APPWRITE_CONSTANTS.DATABASE_ID,
+        APPWRITE_CONSTANTS.SCHOOLS_COLLECTION_ID,
         [
             Query.equal('shorthand', schoolShorthand)
         ])
