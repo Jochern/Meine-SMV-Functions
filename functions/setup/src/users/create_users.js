@@ -1,24 +1,17 @@
 import { ID } from "node-appwrite";
 import { users, teams } from "../appwrite/appwrite_client.js"
 
-const createUser = async ({ email, password, name, schoolShorthand, role, firstName, lastName, log }) => {
-    let currentUser
-    try {
-        currentUser = await users.list([firstName, lastName, email]);
-    } catch (error) {
-        log("current users couldnt be queried");
-    }
-    log(currentUser)
-    //if (currentUser !== undefined) throw Error(`User with Email '${email}' or Name '${name}' already exists.`)
+const createUser = async ({ email, password, name, schoolShorthand, role, name, log }) => {
+// let currentUser
+// try {
+//     currentUser = await users.list([firstName, lastName, email]);
+// } catch (error) {
+//     log("current users couldnt be queried");
+// }
+// if (currentUser !== undefined) throw Error(`User with Email '${email}' or Name '${name}' already exists.`)
 
     let userId = ID.unique()
-    log(userId)
-    // try {
-        await users.create(userId, email, undefined, password, name || '');
-    // } catch (error) {
-    //     log(error.toString())
-    //     throw Error('Could not create User. User already exists.', { cause: error })
-    // }
+    await users.create(userId, email, undefined, password, name || '');
 
     await teams.create(schoolShorthand, schoolShorthand);
     switch (role) {
