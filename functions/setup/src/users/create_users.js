@@ -15,7 +15,6 @@ const createUser = async ({ email, password, name, schoolShorthand, role, log })
     let user = email ? await users.create(userId, email, undefined, password, name)
         : await users.create(userId, `${name.toLowerCase().replace(/\s/g, '')}@${schoolShorthand}.i`, undefined, password, name);
 
-    await teams.create(schoolShorthand, schoolShorthand);
     switch (role) {
         case 'm':
             //await users.updateLabels(userId, ['admin', 'manager']);
