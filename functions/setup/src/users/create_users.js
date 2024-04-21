@@ -10,12 +10,10 @@ const createUser = async ({ email, password, name, schoolShorthand, role, log })
 // }
 // if (currentUser !== undefined) throw Error(`User with Email '${email}' or Name '${name}' already exists.`)
 
+
     let userId = ID.unique()
-    if (email) {
-        await users.create(userId, email, undefined, password, name);
-    } else {
-        await users.create(userId, `${name.toLowerCase().replace(/\s/g, '')}@${schoolShorthand}.i`, undefined, password, name);
-    }
+    let user = email ? await users.create(userId, email, undefined, password, name)
+        : await users.create(userId, `${name.toLowerCase().replace(/\s/g, '')}@${schoolShorthand}.i`, undefined, password, name);
 
     await teams.create(schoolShorthand, schoolShorthand);
     switch (role) {
