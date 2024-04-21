@@ -10,7 +10,17 @@ export default async ({ req, res, log, error }) => {
 
   // The `req` object contains the request data
   if (req.method === 'GET') {
+    log(req.body)
+    if (req.bod)
+      try {
     await createUser({ email: 'johannes.kling@outlook.de', name: 'testname', schoolShorthand: 'TESTTEST', password: 'test', role: 'm', log: log })
+      } catch (error) {
+        res.json({
+          status: 400,
+          error: error.toString(),
+          initialEmail: "johannes.kling@outlook.de",
+        })
+      }
     // Send a response with the res object helpers
     // `res.send()` dispatches a string back to the client
     return res.send('Hello, World!');
