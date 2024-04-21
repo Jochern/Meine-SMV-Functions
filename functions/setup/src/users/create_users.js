@@ -13,7 +13,7 @@ const createUser = async ({ email, password, name, schoolShorthand, role, log })
     let userId = ID.unique()
     log(userId)
     try {
-        await users.create(userId, email, password, name || '');
+        await users.create(userId, email, undefined, password, name || '');
     } catch (error) {
         log(error.toString())
         throw Error('Could not create User. User already exists.', { cause: error })
