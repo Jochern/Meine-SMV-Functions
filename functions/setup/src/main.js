@@ -7,7 +7,8 @@ export default async ({ req, res, log, error }) => {
   // You can log messages to the console
   log('Request Recieved!');
 
-
+  let data = JSON.parse(req.body);
+  log(data.email)
   // The `req` object contains the request data
   if (req.method === 'GET') {
     log(req.body)
