@@ -8,7 +8,6 @@ export default async ({ req, res, log, error }) => {
   log('Request Recieved!');
   // const obj = JSON.parse(req.body.toString());
 
-  log(req.body.type)
   // The `req` object contains the request data
   if (req.method === 'POST') {
     if (req.body.type == 'user') {

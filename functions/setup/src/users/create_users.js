@@ -7,7 +7,6 @@ const createUser = async ({ email, password, name, schoolShorthand, role, log })
         currentUser = await users.list();
     } catch (error) {
         log("current users couldnt be queried");
-        log(currentUser)
     }
     //if (currentUser !== undefined) throw Error(`User with Email '${email}' or Name '${name}' already exists.`)
 
@@ -21,7 +20,6 @@ const createUser = async ({ email, password, name, schoolShorthand, role, log })
     }
 
     await teams.create(schoolShorthand, schoolShorthand);
-    log('asd')
     switch (role) {
         case 'm':
             //await users.updateLabels(userId, ['admin', 'manager']);
