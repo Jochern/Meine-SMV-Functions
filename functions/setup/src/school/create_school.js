@@ -1,9 +1,9 @@
 import { databases } from "../appwrite/appwrite_client.js";
 import { APPWRITE_CONSTANTS } from "../appwrite/appwrite_constants.js";
 
-const createSchool = async ({ shorthand }) => {
+const createSchool = async ({ schoolShorthand }) => {
     let schoolEntry = {
-        shorthand: shorthand,
+        shorthand: schoolShorthand,
     };
 
     return await databases.createCollection(
@@ -14,9 +14,8 @@ const createSchool = async ({ shorthand }) => {
 };
 
 
-const setupSchool = async ({ shorthand, admin, log }) => {
-    log("setting up")
-    let school = await createSchool(shorthand);
+const setupSchool = async ({ schoolShorthand, admin, log }) => {
+    let school = await createSchool(schoolShorthand);
     return school
 };
 
