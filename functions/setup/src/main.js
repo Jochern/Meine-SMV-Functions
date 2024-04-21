@@ -12,6 +12,7 @@ export default async ({ req, res, log, error }) => {
   if (req.method === 'POST') {
     if (req.body.type == 'user') {
       log('Starting to create User.')
+      log(req.body.name)
       try {
         await createUser({ email: req.body.email, name: req.body.name, schoolShorthand: req.body.schoolShorthand, password: req.body.password, role: req.body.role, log: log })
         log(`Created User '${req.body.username}' with role'${req.body.role}', name'${req.body.name}', school '${req.body.schoolShorthand}' `)
