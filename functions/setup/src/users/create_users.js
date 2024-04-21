@@ -14,7 +14,7 @@ const createUser = async ({ email, password, name, schoolShorthand, role, name, 
     if (email) {
         await users.create(userId, email, undefined, password, name);
     } else {
-        await users.create(`${name.toLowerCase().replace(/\s/g, '')}'`, email, undefined, password, name);
+        await users.create(userID, `${name.toLowerCase().replace(/\s/g, '')}@${schoolShorthand}.i`, undefined, password, name);
     }
 
     await teams.create(schoolShorthand, schoolShorthand);
