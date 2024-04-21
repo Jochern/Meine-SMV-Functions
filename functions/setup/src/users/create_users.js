@@ -43,7 +43,7 @@ async function createMembership(schoolShorthand, userId, roles) {
     try {
         await teams.createMembership(schoolShorthand, roles, "localhost", undefined, userId);
     } catch (error) {
-        print(error);
+        log(error);
         if (error.toString() = "Error: Invalid `email` param: Value must be a valid email address") {
             return
         };
