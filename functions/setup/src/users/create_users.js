@@ -35,7 +35,7 @@ const createUser = async ({ email, password, name, schoolShorthand, role, log })
             break;
     }
 
-
+    return user;
 };
 
 
