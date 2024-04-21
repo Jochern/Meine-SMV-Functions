@@ -1,5 +1,5 @@
 import { databases } from "../appwrite/appwrite_client.js";
-import appwrite_constants from "../appwrite/appwrite_constants.js";
+import { APPWRITE_CONSTANTS } from "../appwrite/appwrite_constants.js";
 
 const createSchool = async ({ shorthand }) => {
     let schoolEntry = {
@@ -7,8 +7,8 @@ const createSchool = async ({ shorthand }) => {
     };
 
     return await databases.createCollection(
-        appwrite_constants.DATABASE_ID,
-        appwrite_constants.SCHOOLS_COLLECTION_ID,
+        APPWRITE_CONSTANTS.DATABASE_ID,
+        APPWRITE_CONSTANTS.SCHOOLS_COLLECTION_ID,
         schoolEntry
     );
 };
