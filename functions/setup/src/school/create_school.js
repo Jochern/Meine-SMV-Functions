@@ -6,7 +6,7 @@ const createSchool = async ({ schoolShorthand, log }) => {
         shorthand: schoolShorthand,
     };
 
-    log(schoolEntry)
+    log(schoolEntry.toString())
 
     return await databases.createCollection(
         APPWRITE_CONSTANTS.DATABASE_ID,
