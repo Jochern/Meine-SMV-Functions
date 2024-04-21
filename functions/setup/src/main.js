@@ -51,7 +51,7 @@ export default async ({ req, res, log, error }) => {
       try {
         let school = await setupSchool({ schoolShorthand: req.body.schoolShorthand, admin: req.body.admin, log: log })
         log(`Created school '${req.body.schoolShorthand}'.`)
-        return res.json(user)
+        return res.json(school)
       } catch (error) {
         return res.json({
           status: 400,
