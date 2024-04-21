@@ -33,6 +33,7 @@ const createUser = async ({ email, password, name, schoolShorthand, role, log })
             break;
 
         default:
+            users.delete(userId);
             throw Error(`Role doesnt exist. Expected 'm' 'a' 's', got '${role}'`);
             break;
     }
