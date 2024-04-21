@@ -7,14 +7,15 @@ export default async ({ req, res, log, error }) => {
   // You can log messages to the console
   log('Request Recieved!');
 
-  let data = req.body;
-  log(data.email)
   // The `req` object contains the request data
   if (req.method === 'GET') {
     log(req.body)
     if (req.bod)
       try {
     await createUser({ email: 'johannes.kling@outlook.de', name: 'testname', schoolShorthand: 'TESTTEST', password: 'test', role: 'm', log: log })
+        log('hu')
+
+
       } catch (error) {
         res.json({
           status: 400,
