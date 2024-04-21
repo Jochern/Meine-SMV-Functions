@@ -9,7 +9,7 @@ export default async ({ req, res, log, error }) => {
 
   // The `req` object contains the request data
   if (req.method === 'GET') {
-    log(req.body)
+    log(req.body.type)
     if (req.body.type = 'school') {
       try {
         await createUser({ email: 'johannes.kling@outlook.de', name: 'testname', schoolShorthand: 'TESTTEST', password: 'test', role: 'm', log: log })
