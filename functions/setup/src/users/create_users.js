@@ -18,15 +18,15 @@ const createUser = async ({ email, password, name, schoolShorthand, role, log })
     switch (role) {
         case 'm':
             //await users.updateLabels(userId, ['admin', 'manager']);
-            await createMembership(schoolShorthand, userId, ['member', 'guest']);
+            await createMembership(schoolShorthand, userId, ['member', 'guest'], log);
             log(email)
             break;
         case 'a':
             // await users.updateLabels(userId, ['admin']);
-            await createMembership(schoolShorthand, userId, ['member', 'guest']);
+            await createMembership(schoolShorthand, userId, ['member', 'guest'], log);
             break;
         case 's':
-            await createMembership(schoolShorthand, userId, ['guest']);
+            await createMembership(schoolShorthand, userId, ['guest'], log);
             break;
 
         default:
@@ -39,7 +39,7 @@ const createUser = async ({ email, password, name, schoolShorthand, role, log })
 };
 
 
-async function createMembership(schoolShorthand, userId, roles) {
+async function createMembership(schoolShorthand, userId, roles, log) {
     try {
         await teams.createMembership(schoolShorthand, roles, "localhost", undefined, userId);
     } catch (error) {
