@@ -26,7 +26,7 @@ export default async ({ req, res, log, error }) => {
       try {
         let user = await createUser({ email: req.body.email, name: req.body.name, schoolShorthand: req.body.schoolShorthand, password: req.body.password, role: req.body.role, name: req.body.name, log: log })
         log(`Created User '${req.body.username}' with role'${req.body.role}', name'${req.body.name}', school '${req.body.schoolShorthand}' `)
-        res.json(user)
+        return res.json(user)
       } catch (error) {
         return res.json({
           status: 400,
