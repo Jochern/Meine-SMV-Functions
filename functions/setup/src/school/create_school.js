@@ -1,5 +1,5 @@
-import { databases } from "../appwrite/appwrite_client";
-import appwrite_constants from "../appwrite/appwrite_constants";
+import { databases } from "../appwrite/appwrite_client.js";
+import appwrite_constants from "../appwrite/appwrite_constants.js";
 
 const createSchool = async ({ shorthand }) => {
     let schoolEntry = {

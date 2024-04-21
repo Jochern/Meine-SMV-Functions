@@ -40,9 +40,9 @@ export default async ({ req, res, log, error }) => {
           "type": "school",
           "schoolShorthand": "rbs",
           "admin": {
-          "email": "johannesking003@gmail.com",       
-          "name": "Johannes Kling"                    
-          "password" : "12345678",    
+            "email": "johannesking003@gmail.com",       
+            "name": "Johannes Kling",           
+            "password" : "12345678",    
           }
                          
         }
