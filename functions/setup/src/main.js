@@ -6,7 +6,7 @@ export default async ({ req, res, log, error }) => {
 
   // You can log messages to the console
   log('Request Recieved!');
-  const obj = JSON.parse(req.body.toString());
+  // const obj = JSON.parse(req.body.toString());
 
   log(req.body.username)
   // The `req` object contains the request data
