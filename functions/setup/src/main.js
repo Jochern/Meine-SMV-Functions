@@ -1,3 +1,4 @@
+import setupSchool from "./school/create_school.js";
 import createUser from "./users/create_users.js"
 
 // This is your Appwrite function
@@ -21,10 +22,35 @@ export default async ({ req, res, log, error }) => {
           "schoolShorthand": "rbs",
         }
       */
-      log('Starting to create User.')
+      log('Starting to create User:')
       log(req.body.name)
       try {
         let user = await createUser({ email: req.body.email, name: req.body.name, schoolShorthand: req.body.schoolShorthand, password: req.body.password, role: req.body.role, name: req.body.name, log: log })
+        log(`Created User '${req.body.username}' with role'${req.body.role}', name'${req.body.name}', school '${req.body.schoolShorthand}' `)
+        return res.json(user)
+      } catch (error) {
+        return res.json({
+          status: 400,
+          error: error.toString(),
+        })
+      }
+    } else if (req.body.type == 'school') {
+      /*
+        {
+          "type": "school",
+          "schoolShorthand": "rbs",
+          "admin": {
+          "email": "johannesking003@gmail.com",       
+          "name": "Johannes Kling"                    
+          "password" : "12345678",    
+          }
+                         
+        }
+      */
+      log('Starting to create School:')
+      log(req.body.schoolShorthand)
+      try {
+        let school = await setupSchool({ email: req.body.email, name: req.body.name, schoolShorthand: req.body.schoolShorthand, password: req.body.password, role: req.body.role, name: req.body.name, log: log })
         log(`Created User '${req.body.username}' with role'${req.body.role}', name'${req.body.name}', school '${req.body.schoolShorthand}' `)
         return res.json(user)
       } catch (error) {

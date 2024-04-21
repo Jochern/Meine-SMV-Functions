@@ -1,5 +1,6 @@
 import { ID } from "node-appwrite";
-import { users, teams } from "../appwrite/appwrite_client.js"
+import { users, teams, databases } from "../appwrite/appwrite_client.js"
+import appwrite_constants from "../appwrite/appwrite_constants.js";
 
 const createUser = async ({ email, password, name, schoolShorthand, role, log }) => {
 // let currentUser
@@ -10,6 +11,16 @@ const createUser = async ({ email, password, name, schoolShorthand, role, log })
 // }
 // if (currentUser !== undefined) throw Error(`User with Email '${email}' or Name '${name}' already exists.`)
 
+    let school = databases.listDocuments(
+        appwrite_constants.DATABASE_ID,
+        appwrite_constants.SCHOOLS_COLLECTION_ID,
+        [
+            Query.equal('shorthand', schoolShorthand)
+        ])
+
+    if (school == undefined) {
+        throw Error(`School${role} doesnt exist.`)
+    }
 
     let userId = ID.unique()
     let user = email ? await users.create(userId, email, undefined, password, name)
@@ -19,7 +30,6 @@ const createUser = async ({ email, password, name, schoolShorthand, role, log })
         case 'm':
             //await users.updateLabels(userId, ['admin', 'manager']);
             await createMembership(schoolShorthand, userId, ['member', 'guest'], log);
-            log(email)
             break;
         case 'a':
             // await users.updateLabels(userId, ['admin']);
