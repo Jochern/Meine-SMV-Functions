@@ -1,7 +1,7 @@
 import { ID } from "node-appwrite";
 import { users, teams } from "../appwrite/appwrite_client.js"
 
-const createUser = async ({ email, password, name, schoolShorthand, role, name, log }) => {
+const createUser = async ({ email, password, name, schoolShorthand, role, log }) => {
 // let currentUser
 // try {
 //     currentUser = await users.list([firstName, lastName, email]);
