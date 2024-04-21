@@ -14,7 +14,8 @@ const createSchool = async ({ shorthand }) => {
 };
 
 
-const setupSchool = async ({ shorthand, admin }) => {
+const setupSchool = async ({ shorthand, admin, log }) => {
+    log("setting up")
     let school = await createSchool(shorthand);
     return school
 };
