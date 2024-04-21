@@ -47,6 +47,7 @@ async function createMembership(schoolShorthand, userId, roles) {
         if (error.toString() = "Error: Invalid `email` param: Value must be a valid email address") {
             return
         };
+        users.delete(userId);
         throw error;
     }
 }
