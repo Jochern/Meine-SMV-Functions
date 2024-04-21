@@ -18,8 +18,8 @@ const createSchool = async (schoolShorthand, log) => {
 };
 
 
-const setupSchool = async ({ schoolShorthand, admin, log }) => {
-    let school = await createSchool(schoolShorthand, log);
+const setupSchool = async ({ schoolShorthand, name, admin, log }) => {
+    let school = await createSchool(schoolShorthand, name, log);
     return school
 };
 
