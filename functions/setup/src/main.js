@@ -6,7 +6,7 @@ export default async ({ req, res, log, error }) => {
 
   // You can log messages to the console
   log('Request Recieved!');
-  log(req.body[type])
+  log(req.body)
   // The `req` object contains the request data
   if (req.method === 'POST') {
     log(req.body.type)
