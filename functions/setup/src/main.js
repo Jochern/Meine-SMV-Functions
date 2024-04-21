@@ -8,26 +8,24 @@ export default async ({ req, res, log, error }) => {
   log('Request Recieved!');
 
   // The `req` object contains the request data
-  if (req.method === 'GET') {
+  if (req.method === 'POST') {
     log(req.body.type)
     if (req.body.type = 'school') {
       try {
-        await createUser({ email: 'johannes.kling@outlook.de', name: 'testname', schoolShorthand: 'TESTTEST', password: 'test', role: 'm', log: log })
-        log('hu')
+        await createUser({ email: req.body.email, name: req.body.name, schoolShorthand: req.body.schoolShorthand, password: req.body.password, role: req.body.role, log: log })
+        log(`Created User '${req.body.user}' with role'${req.body.role}', name'${req.body.name}', school '${req.body.schoolShorthand}' `)
 
 
       } catch (error) {
         return res.json({
           status: 400,
           error: error.toString(),
-          initialEmail: "johannes.kling@outlook.de",
         })
       }
     } else {
       return res.json({
         status: 404,
         error: "Error, no type for message found.",
-        initialEmail: "johannes.kling@outlook.de",
       })
     }
 
