@@ -23,6 +23,12 @@ export default async ({ req, res, log, error }) => {
           initialEmail: "johannes.kling@outlook.de",
         })
       }
+    } else {
+      return res.json({
+        status: 404,
+        error: "Error, no type for message found.",
+        initialEmail: "johannes.kling@outlook.de",
+      })
     }
 
     // Send a response with the res object helpers
