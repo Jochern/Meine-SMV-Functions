@@ -17,8 +17,7 @@ export default async ({ req, res, log, error }) => {
 
 
       } catch (error) {
-        return 
-        res.json({
+        return res.json({
           status: 400,
           error: error.toString(),
           initialEmail: "johannes.kling@outlook.de",
