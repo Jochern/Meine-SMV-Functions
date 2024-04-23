@@ -3,6 +3,7 @@ import { users, teams, databases } from "../appwrite/appwrite_client.js"
 import { APPWRITE_CONSTANTS } from "../appwrite/appwrite_constants.js";
 
 const createUser = async ({ email, password, name, schoolShorthand, role, log }) => {
+
 // let currentUser
 // try {
 //     currentUser = await users.list([firstName, lastName, email]);

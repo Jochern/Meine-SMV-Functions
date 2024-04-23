@@ -1,6 +1,7 @@
 import { ID } from "node-appwrite";
 import { databases } from "../appwrite/appwrite_client.js";
 import { APPWRITE_CONSTANTS } from "../appwrite/appwrite_constants.js";
+import createUser from "../users/create_users.js";
 
 const createSchool = async (schoolShorthand, schoolName, log) => {
     let schoolEntry = {
@@ -8,7 +9,6 @@ const createSchool = async (schoolShorthand, schoolName, log) => {
     };
 
     log(schoolEntry)
-
     return await databases.createDocument(
         APPWRITE_CONSTANTS.DATABASE_ID,
         APPWRITE_CONSTANTS.SCHOOLS_COLLECTION_ID,
@@ -20,8 +20,8 @@ const createSchool = async (schoolShorthand, schoolName, log) => {
 
 const setupSchool = async ({ schoolShorthand, schoolName, admin, log }) => {
     let school = await createSchool(schoolShorthand, schoolName, log);
-
-    return school
+    let user = await createUser({ password: admin.password, email: admin.email, name: admin.name, schoolShorthand: schoolShorthand, role: 'm' })
+    return [school, user]
 };
 
 export default setupSchool;
