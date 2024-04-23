@@ -51,7 +51,7 @@ const createUser = async ({ email, password, name, schoolShorthand, role, log })
 async function createMembership(schoolShorthand, userId, roles, log) {
     try {
         log("creating membership")
-        let data = await teams.createMembership(schoolShorthand, roles, "localhost", undefined, userId);
+        let data = await teams.createMembership(schoolShorthand, roles, "johannes.kling@outlook.de", userId);
         log(data);
     } catch (error) {
         log(error);
