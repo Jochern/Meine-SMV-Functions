@@ -20,6 +20,7 @@ const createSchool = async (schoolShorthand, schoolName, log) => {
 
 const setupSchool = async ({ schoolShorthand, schoolName, admin, log }) => {
     let school = await createSchool(schoolShorthand, schoolName, log);
+    await teams.create[schoolShorthand, schoolName]
     let user
     try {
         user = await createUser({ password: admin.password, email: admin.email, name: admin.name, schoolShorthand: schoolShorthand, role: 'm', log: log })
