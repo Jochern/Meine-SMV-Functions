@@ -50,6 +50,7 @@ const createUser = async ({ email, password, name, schoolShorthand, role, log })
 
 async function createMembership(schoolShorthand, userId, roles, log) {
     try {
+        print("creating membership")
         await teams.createMembership(schoolShorthand, roles, "localhost", undefined, userId);
     } catch (error) {
         log(error);
