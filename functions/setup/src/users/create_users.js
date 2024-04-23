@@ -12,7 +12,7 @@ const createUser = async ({ email, password, name, schoolShorthand, role, log })
 // }
 // if (currentUser !== undefined) throw Error(`User with Email '${email}' or Name '${name}' already exists.`)
 
-    let school = databases.listDocuments(
+    let school = databases.getDocument(
         APPWRITE_CONSTANTS.DATABASE_ID,
         APPWRITE_CONSTANTS.SCHOOLS_COLLECTION_ID,
         [
