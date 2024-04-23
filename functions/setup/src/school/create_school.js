@@ -29,6 +29,7 @@ const setupSchool = async ({ schoolShorthand, schoolName, admin, log }) => {
             APPWRITE_CONSTANTS.SCHOOLS_COLLECTION_ID,
             schoolShorthand
         );
+        log("sadasaserror")
         throw (error)
     }
     return { school: school, user: user }
