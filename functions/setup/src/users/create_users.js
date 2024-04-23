@@ -49,19 +49,7 @@ const createUser = async ({ email, password, name, schoolShorthand, role, log })
 
 
 async function createMembership(schoolShorthand, userId, roles, log) {
-    try {
-        log("creating membership")
-        let data = await teams.createMembership(schoolShorthand, roles, undefined, userId);
-        log(data);
-    } catch (error) {
-        log(error);
-        if (error.toString() == "Error: Invalid `email` param: Value must be a valid email address") {
-            log("aspdnapisdnaspindpsaindpaisndpsaidnaspidpiasno")
-            return
-        };
-        users.delete(userId);
-        throw error;
-    }
+    let data = await teams.createMembership(schoolShorthand, roles, undefined, userId);
 }
 
 export default createUser;
