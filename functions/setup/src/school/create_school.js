@@ -1,5 +1,5 @@
 import { ID } from "node-appwrite";
-import { databases } from "../appwrite/appwrite_client.js";
+import { databases, teams } from "../appwrite/appwrite_client.js";
 import { APPWRITE_CONSTANTS } from "../appwrite/appwrite_constants.js";
 import createUser from "../users/create_users.js";
 
