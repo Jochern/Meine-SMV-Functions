@@ -20,7 +20,7 @@ const createSchool = async (schoolShorthand, schoolName, log) => {
 
 const setupSchool = async ({ schoolShorthand, schoolName, admin, log }) => {
     let school = await createSchool(schoolShorthand, schoolName, log);
-    let team = await teams.create[schoolShorthand, schoolName]
+    let team = await teams.create(schoolShorthand, schoolName)
     log(team)
     let user
     try {
