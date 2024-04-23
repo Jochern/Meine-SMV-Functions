@@ -19,6 +19,7 @@ const createSchool = async (schoolShorthand, schoolName, log) => {
 
 
 const setupSchool = async ({ schoolShorthand, schoolName, admin, log }) => {
+    log("asd")
     let school = await createSchool(schoolShorthand, schoolName, log);
     log("asd")
     let user = await createUser({ password: admin.password, email: admin.email, name: admin.name, schoolShorthand: schoolShorthand, role: 'm', log: log })
