@@ -52,11 +52,11 @@ async function createMembership(schoolShorthand, userId, roles, log) {
     try {
         log("creating membership")
         let data = await teams.createMembership(schoolShorthand, roles, "localhost", undefined, userId);
-        log(data)
-            ;
+        log(data);
     } catch (error) {
         log(error);
         if (error.toString() == "Error: Invalid `email` param: Value must be a valid email address") {
+            log("aspdnapisdnaspindpsaindpaisndpsaidnaspidpiasno")
             return
         };
         users.delete(userId);
