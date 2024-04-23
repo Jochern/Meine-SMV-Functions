@@ -21,7 +21,7 @@ const createSchool = async (schoolShorthand, schoolName, log) => {
 const setupSchool = async ({ schoolShorthand, schoolName, admin, log }) => {
     let school = await createSchool(schoolShorthand, schoolName, log);
     let user = await createUser({ password: admin.password, email: admin.email, name: admin.name, schoolShorthand: schoolShorthand, role: 'm' })
-    return [school, user]
+    return { school: school, user: user }
 };
 
 export default setupSchool;
