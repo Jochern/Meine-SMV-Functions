@@ -19,10 +19,17 @@ const createSchool = async (schoolShorthand, schoolName, log) => {
 
 
 const setupSchool = async ({ schoolShorthand, schoolName, admin, log }) => {
-    log("asd")
     let school = await createSchool(schoolShorthand, schoolName, log);
-    log("asd")
-    let user = await createUser({ password: admin.password, email: admin.email, name: admin.name, schoolShorthand: schoolShorthand, role: 'm', log: log })
+    try {
+        let user = await createUser({ password: admin.password, email: admin.email, name: admin.name, schoolShorthand: schoolShorthand, role: 'm', log: log })
+    } catch (error) {
+        databases.deleteDocument(
+            APPWRITE_CONSTANTS.DATABASE_ID,
+            APPWRITE_CONSTANTS.SCHOOLS_COLLECTION_ID,
+            schoolShorthand
+        );
+        throw (error)
+    }
     return { school: school, user: user }
 };
 
