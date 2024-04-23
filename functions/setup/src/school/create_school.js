@@ -8,7 +8,7 @@ const createSchool = async (schoolShorthand, schoolName, log) => {
         name: schoolName
     };
 
-    log("schoolEntry")
+    log(schoolEntry)
     return await databases.createDocument(
         APPWRITE_CONSTANTS.DATABASE_ID,
         APPWRITE_CONSTANTS.SCHOOLS_COLLECTION_ID,

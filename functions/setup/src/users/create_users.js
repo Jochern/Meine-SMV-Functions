@@ -16,7 +16,7 @@ const createUser = async ({ email, password, name, schoolShorthand, role, log })
         APPWRITE_CONSTANTS.DATABASE_ID,
         APPWRITE_CONSTANTS.SCHOOLS_COLLECTION_ID,
         [
-            Query.equal('shorthand', schoolShorthand)
+            Query.equal('$id', schoolShorthand)
         ])
 
     if (school == undefined) {
