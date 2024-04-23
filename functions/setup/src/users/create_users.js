@@ -15,10 +15,8 @@ const createUser = async ({ email, password, name, schoolShorthand, role, log })
     let school = databases.getDocument(
         APPWRITE_CONSTANTS.DATABASE_ID,
         APPWRITE_CONSTANTS.SCHOOLS_COLLECTION_ID,
-        [
-            Query.equal('$id', schoolShorthand)
-        ])
-
+        schoolShorthand
+    )
     if (school == undefined) {
         throw Error(`School${role} doesnt exist.`)
     }
