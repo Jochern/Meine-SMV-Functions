@@ -49,7 +49,11 @@ const createUser = async ({ email, password, name, schoolShorthand, role, log })
 
 
 async function createMembership(schoolShorthand, userId, roles, log) {
-    let data = await teams.createMembership(schoolShorthand, roles, undefined, userId);
+    try {
+        await teams.createMembership(schoolShorthand, roles, undefined, userId);
+    } catch (error) {
+        users.delete(userId);
+    }
 }
 
 export default createUser;
