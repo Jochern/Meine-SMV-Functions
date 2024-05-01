@@ -15,8 +15,9 @@ export default async ({ req, res, log, error }) => {
       /*
         {
           "type": "user",
-          "email": "johannesking003@gmail.com",       @optional -> wenn leer dann wird standart erzeugt (name@school.i)
-          "name": "Johannes Kling"                    
+          "email": "johannesking003@gmail.com",       @optional -> wenn leer dann wird standart erzeugt (username@school.i)
+          "name": "Johannes Kling"                    @optional -> wenn email angegeben wird username nicht benoetigt
+          "username" : "johannes"
           "password" : "12345678",                   
           "role": "u",				                        // member(m), admin(a), student(s)
           "schoolShorthand": "rbs",
@@ -25,8 +26,8 @@ export default async ({ req, res, log, error }) => {
       log('Starting to create User:')
       log(req.body.name)
       try {
-        let user = await createUser({ email: req.body.email, name: req.body.name, schoolShorthand: req.body.schoolShorthand, password: req.body.password, role: req.body.role, name: req.body.name, log: log })
-        log(`Created User '${req.body.username}' with role'${req.body.role}', name'${req.body.name}', school '${req.body.schoolShorthand}' `)
+        let user = await createUser({ email: req.body.email, name: req.body.name, username: req.body.username, schoolShorthand: req.body.schoolShorthand, password: req.body.password, role: req.body.role, name: req.body.name, log: log })
+        log(`Created User '${req.body.username}' with role'${req.body.role}', name'${req.body.name}', name'${req.body.username}', school '${req.body.schoolShorthand}' `)
         return res.json(user)
       } catch (error) {
         return res.json({

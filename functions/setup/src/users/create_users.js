@@ -23,7 +23,7 @@ const createUser = async ({ email, password, name, schoolShorthand, role, log })
 
     let userId = ID.unique()
     email ? await users.create(userId, email, undefined, password, name)
-        : await users.create(userId, `${name.toLowerCase().replace(/\s/g, '')}@${schoolShorthand}.i`, undefined, password, name);
+        : await users.create(userId, `${username.toLowerCase().replace(/\s/g, '')}@${schoolShorthand}.i`, undefined, password, name);
 
     switch (role) {
         case 'm':
