@@ -2,7 +2,7 @@ import { ID } from "node-appwrite";
 import { users, teams, databases } from "../appwrite/appwrite_client.js"
 import { APPWRITE_CONSTANTS } from "../appwrite/appwrite_constants.js";
 
-const createUser = async ({ email, password, name, schoolShorthand, role, log }) => {
+const createUser = async ({ email, password, name, username, schoolShorthand, role, log }) => {
 
 // let currentUser
 // try {
