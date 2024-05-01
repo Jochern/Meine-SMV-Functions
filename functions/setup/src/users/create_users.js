@@ -52,7 +52,7 @@ async function createMembership(schoolShorthand, userId, roles, log) {
     try {
         await teams.createMembership(schoolShorthand, roles, undefined, userId);
     } catch (error) {
-        users.delete(userId);
+        await users.delete(userId);
     }
 }
 
