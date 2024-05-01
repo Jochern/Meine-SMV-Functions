@@ -22,7 +22,7 @@ const createUser = async ({ email, password, name, schoolShorthand, role, log })
     }
 
     let userId = ID.unique()
-    let user = email ? await users.create(userId, email, undefined, password, name)
+    email ? await users.create(userId, email, undefined, password, name)
         : await users.create(userId, `${name.toLowerCase().replace(/\s/g, '')}@${schoolShorthand}.i`, undefined, password, name);
 
     switch (role) {
@@ -44,7 +44,7 @@ const createUser = async ({ email, password, name, schoolShorthand, role, log })
             break;
     }
 
-    return user;
+    return users.get(userId);
 };
 
 
